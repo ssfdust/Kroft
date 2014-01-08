@@ -216,41 +216,41 @@ function kroft_comment($comment, $args, $depth) {
 endif; ?>
 <?php 
 function kroft_comments_pager($range=6){
-		global $paged, $wp_query;
+		global $cpage, $wp_query;
 		if ( !$max_page ) {$max_page = $wp_query -> max_num_comment_pages;}
 		if ($max_page > 1) {
-				if(!$paged)
-			   			$paged = 1;
-		if ($paged != 1) {
-				echo "<li class='first-page'><a href='".get_comments_pagenum_link(0)."'>&laquo;</a></li>\n";
-				echo "<li><a href='" . get_comments_pagenum_link($page) . "'>&lsaquo;</a></li>";
+				if(!$cpage)
+			   			$cpage = 1;
+		if ($cpage != 1) {
+				echo "<li class='first-page'><a href='".get_comments_pagenum_link(1)."'>&laquo;</a></li>\n";
+				echo "<li><a href='" . get_comments_pagenum_link($cpage - 1) . "'>&lsaquo;</a></li>";
 		}
 		}
 		if ($max_page > $range){
-				if($paged <  $range) 
+				if($cpage <  $range) 
 				{
 						for ($i = 1;$i <= ($range + 1);$i++) {
 								echo "<li";
-								if ($i == $paged)
+								if ($i == $cpage)
 										echo " class='active'";
 								echo "><a href='".get_comments_pagenum_link($i)."'>>$i</a></li>";
 						}
 				}
-				elseif ($paged >= ($max_page - ceil($range / 2))) 
+				elseif ($cpage >= ($max_page - ceil($range / 2))) 
 				{
 						for ($i = $max_page - $range; $i <= $max_page;$i++) 
 						{
 								echo "<li";
-								if ($i == $paged)
+								if ($i == $cpage)
 										echo " class='active'";
 								echo "><a href='" . get_comments_pagenum_link($i) . "'";
 								echo ">$i</a></li>";
 						}
 				}
-				elseif ($paged >= $range && $paged < ($max_page - ceil($range / 2))) {
-						for ($i = ($paged - ceil($range / 2)); $i <= ($paged + ceil($range / 2));$i++) {
+				elseif ($cpage >= $range && $cpage < ($max_page - ceil($range / 2))) {
+						for ($i = ($cpage - ceil($range / 2)); $i <= ($cpage + ceil($range / 2));$i++) {
 								echo "<li";
-								if ( $i == $paged )
+								if ( $i == $cpage )
 										echo "class='active'";
 								echo "><a href'" . get_comments_pagenum_link($i)."'";
 								echo ">$i</a></li>";
@@ -260,16 +260,16 @@ function kroft_comments_pager($range=6){
 		else {
 				for ($i = 1;$i <= $max_page; $i++) {
 						echo "<li";
-						if ($i == $paged) 
+						if ($i == $cpage) 
 								echo " class='active'";
 						echo "><a href='" . get_comments_pagenum_link($i) . "'";
 						echo ">$i</a></li>";
 				}
 		}
 		
-		if ($paged != $max_page) {
-				echo "<li><a href='" . get_comments_pagenum_link($paged + 1) . "'>&rsaquo;</a></li>";
-				echo "<li class='last-page'><a href='" . get_comments_pagenum_link($max_page) . "'>&raquo;</a></li>";
+		if ($cpage != $max_page) {
+				echo "<li><a href='" . get_comments_pagenum_link($cpage + 1) . "'>&rsaquo;</a></li>";
+				echo "<li class='last-page' id='$cpage'><a href='" . get_comments_pagenum_link($max_page) . "'>&raquo;</a></li>";
 		}
 }
 ?>

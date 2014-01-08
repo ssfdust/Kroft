@@ -6,7 +6,7 @@
 							<?php if (have_comments()) : ?>
 							<div id="comments-wrap">
 								<ol class="commentlist">
-									<?php wp_list_comments(array('callback' => 'kroft_comment','style' => 'ul', 'per_page' => 20)); ?>           
+									<?php wp_list_comments(array('callback' => 'kroft_comment','style' => 'ul')); ?>           
 								</ol>
 							</div>
 							<ul class='pager' style="float:right">

@@ -2,10 +2,16 @@
 /*
 Template Name: Gallery
 */
+
+//Add excerpt length
+function custom_excerpt_length( $length ) {
+	return 80;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 ?>
 
 	        <?php get_header(); ?>	
-					<div class="page-title"><h1>Our Gallery</h1> <span>Lorem ipsum dolor amet</span></div>
+					<div class="page-title"><h1>Our Gallery</h1> <span>Share my memory and experience</span></div>
 					
 					<!-- side content -->
 					<div id="gallery-holder">

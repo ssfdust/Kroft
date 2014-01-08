@@ -1,4 +1,11 @@
-<?php get_header();?>        	
+<?php get_header();
+//Add excerpt length
+function custom_excerpt_length( $length ) {
+	return 160;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+?>        	
 	        		
 	        		<!-- Front slider -->
 	        		<div id="front-slides">
