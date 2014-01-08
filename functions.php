@@ -59,7 +59,7 @@ function kroft_gallery_init() {
 			'show_in_nav_menus' => true,
 			'menu_position' => 3,
 			'taxonomies' => array('works'),
-			'supports' => array('title', 'editor', 'author', 'thumbnail', 'custom-fields'),
+			'supports' => array('title', 'editor', 'author', 'thumbnail', 'custom-fields', 'comments'),
 			'_builtin' => false, // It's a custom post type, not built in!
 		)
 	);
