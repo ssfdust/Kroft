@@ -1,5 +1,5 @@
 						<!-- Comments switcher -->
-						<h6 class="show-comments"><?php comments_popup_link('0 Comment', '1 Comment', '% Comments', '', '评论已关闭'); ?> <span>click to show</span></h6>
+						<h6 class="show-comments"><?php comments_popup_link('0 Comment', '1 Comment', '% Comments', '', '评论已关闭'); ?> <span id="stat">click to show</span></h6>
 						<div class="comments-switcher">
 						
 							<!-- comments list -->
@@ -13,10 +13,17 @@
 								<?php kroft_comments_pager(); ?>
 							</ul>
 							<div class='clear'></div>
-							<?php else : ?>
+							<?php elseif (comments_open()) : ?>
 							<div id="comments-wrap">
 								<ol class="commentlist">
 								<li><p>还没有评论，要不你来写两句。</p></li>
+								</ol>
+							</div>
+							<!-- ENDS comments list -->
+							<?php else : ?>
+							<div id="comments-wrap">
+								<ol class="commentlist">
+								<li><p>好像不给评论的样子:(</p></li>
 								</ol>
 							</div>
 							<!-- ENDS comments list -->

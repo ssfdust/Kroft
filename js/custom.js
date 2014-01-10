@@ -208,9 +208,9 @@ jQuery(document).ready(function($) {
 	
 	$comments_switcher.click(function(){
 		if($comments_holder.css("display") == "block"){
-			$comments_switcher.children("span").text("click to show");		
+			$comments_switcher.children("span#stat").text("click to show");		
 		}else{
-			$comments_switcher.children("span").text("click to hide");
+			$comments_switcher.children("span#stat").text("click to hide");
 		}
 		$comments_holder.slideToggle();
 	});

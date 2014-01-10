@@ -127,7 +127,8 @@ function my_tag_cloud($defaults) {
 add_filter('wp_tag_cloud', 'my_tag_cloud');
 
 function kroft_pager($range=6){
-		global $paged, $wp_query;
+		global $wp_query;
+		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 		if ( !$max_page ) {$max_page = $wp_query -> max_num_pages;}
 		if ($max_page > 1) {
 				if(!$paged)
@@ -216,7 +217,8 @@ function kroft_comment($comment, $args, $depth) {
 endif; ?>
 <?php 
 function kroft_comments_pager($range=6){
-		global $cpage, $wp_query;
+		global $wp_query;
+		$cpage = (get_query_var('cpage')) ? get_query_var('cpage') : 1;
 		if ( !$max_page ) {$max_page = $wp_query -> max_num_comment_pages;}
 		if ($max_page > 1) {
 				if(!$cpage)
