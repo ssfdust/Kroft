@@ -1,6 +1,6 @@
 	        <?php get_header();?>	
 			<?php if (have_posts()) :?>
-					<div class="page-title"><h1><?php printf(__('Tag Archives: %s'), single_tag_title('', false)); ?></h1></div>
+					<div class="page-title"><h1><?php printf(__('Tag Archives: %s'), single_tag_title('', false)); ?></h1><span>Share my memory and experience</span></div>
 			<?php if (category_description() ) :?>
 					<span><?php echo tag_description(); ?></span>
 			<?php endif; ?>
@@ -15,7 +15,6 @@
 							get_template_part('content', get_post_format());
 						endwhile;
 						?>
-						</div>
 
 		<?php else : ?>
 			<?php get_template_part('content', 'none'); ?>
