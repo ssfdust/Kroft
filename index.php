@@ -1,9 +1,9 @@
 <?php get_header();
 //Add excerpt length
-function custom_excerpt_length( $length ) {
-	return 160;
+function yet_another( $length ) {
+	return 112;
 }
-add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'yet_another', 999 );
 
 ?>        	
 	        		

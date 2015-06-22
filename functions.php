@@ -296,6 +296,13 @@ function get_kroft_filter() {
 		echo '<li><a href="#" rel="'.$galleryitem->name.'" >  '.$galleryitem->name.' </a></li>';
 	}
 }
+
+
+function custom_excerpt_length( $length ) {
+	return 200;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
 function improved_trim_excerpt($text) {
         global $post;
         if ( '' == $text ) {
@@ -314,6 +321,7 @@ function improved_trim_excerpt($text) {
         }
         return $text;
 }
+
 
 function current_type_nav_class($classes, $item) {
 

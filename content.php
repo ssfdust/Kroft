@@ -1,5 +1,10 @@
 <?php
 
+function chinese_excerpt($text, $lenth=400) {
+    $text = mb_substr($text,0, $lenth);
+    return $text;
+}
+add_filter('the_excerpt', 'chinese_excerpt');
 /*随便写点什么
   */
 ?>
@@ -17,9 +22,9 @@
 								
 								<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 						<?php if ( !is_single()) :  ?>
-								<div class="excerpt"><?php the_excerpt(); ?></div>
+								<div class="excerpt"><?php the_excerpt(); ?>....</div>
 								<div class="meta">
-									Posted by <a><?php the_author(); ?></a>, in <?php the_tags('标签:', ', ', ''); ?> <a href="<?php the_permalink(); ?>" class="read-more" style="font-size:15px">阅读更多...</a>
+									Posted by <a><?php the_author(); ?></a>, in <?php the_category(',')?> <a href="<?php the_permalink(); ?>" class="read-more" style="font-size:15px">阅读更多...</a>
 								</div>
 								<div class="meta-date">
 									<span class="meta-day"><?php the_time('j');?></span><span class="meta-month"><?php echo date("M",get_the_time('U'));?></span><span class="meta-year"><?php the_time('Y') ?></span>
