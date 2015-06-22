@@ -4,6 +4,13 @@ function yet_another( $length ) {
 	return 112;
 }
 add_filter( 'excerpt_length', 'yet_another', 999 );
+function customTitle($limit) {
+$title = get_the_title($post->ID);
+if(strlen($title) > $limit) {
+$title = mb_substr($title, 0, $limit,"UTF-8") . '...';
+}
+echo $title;
+}
 
 ?>        	
 	        		
@@ -44,7 +51,7 @@ add_filter( 'excerpt_length', 'yet_another', 999 );
 								<?php while (have_posts()) : the_post(); ?>
 								<div class="box-container">
 									<img src="<?php bloginfo('template_url'); ?>/img/mono-icons/article32.png" class="box-icon" alt="pic"/>
-									<h6><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h6>
+									<h6><a href="<?php the_permalink(); ?>"><?php customTitle(9);?></a></h6>
 									<div class="box-divider"></div><?php the_excerpt(); ?>
 									</div>
 								<?php endwhile;?>

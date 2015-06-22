@@ -303,6 +303,12 @@ function custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
+function chinese_excerpt($text, $lenth=400) {
+    $text = mb_substr($text,0, $lenth);
+    return $text;
+}
+add_filter('the_excerpt', 'chinese_excerpt');
+
 function improved_trim_excerpt($text) {
         global $post;
         if ( '' == $text ) {

@@ -1,10 +1,5 @@
 <?php
 
-function chinese_excerpt($text, $lenth=400) {
-    $text = mb_substr($text,0, $lenth);
-    return $text;
-}
-add_filter('the_excerpt', 'chinese_excerpt');
 /*随便写点什么
   */
 ?>
