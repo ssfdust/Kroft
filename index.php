@@ -6,7 +6,7 @@ function yet_another( $length ) {
 add_filter( 'excerpt_length', 'yet_another', 999 );
 function customTitle($limit) {
 $title = get_the_title($post->ID);
-if(strlen($title) > $limit) {
+if(mb_strlen($title) > $limit) {
 $title = mb_substr($title, 0, $limit,"UTF-8") . '...';
 }
 echo $title;
