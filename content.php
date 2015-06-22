@@ -17,7 +17,7 @@
 								
 								<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 						<?php if ( !is_single()) :  ?>
-								<div class="excerpt"><?php the_excerpt(); ?>....</div>
+								<div class="excerpt"><?php the_excerpt(); ?></div>
 								<div class="meta">
 									Posted by <a><?php the_author(); ?></a>, in <?php the_category(',')?> <a href="<?php the_permalink(); ?>" class="read-more" style="font-size:15px">阅读更多...</a>
 								</div>
