@@ -4,10 +4,6 @@ Template Name: Gallery
 */
 
 //Add excerpt length
-function custom_excerpt_length( $length ) {
-	return 80;
-}
-add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 ?>
 
 	        <?php get_header(); ?>	
