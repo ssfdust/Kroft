@@ -1,13 +1,10 @@
 <?php
-/*
-Template Name: Blog
-*/
 ?>
 	        <?php get_header();
 					remove_filter('get_the_excerpt', 'wp_trim_excerpt');
 					add_filter ('get_the_excerpt','improved_trim_excerpt');
 					?>	
-					<div class="page-title"><h1>Our Blog</h1> <span>Share my memory and experience</span></div>
+						<div class="page-title"><h1>文章归档</h1> <span><?php printf( get_the_date('F Y'));?></span></div>
 					<!-- side content -->
 					<div id="side-content">
 					

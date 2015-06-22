@@ -1,6 +1,9 @@
-	        <?php get_header();?>	
+					<?php get_header();
+					remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+					add_filter ('get_the_excerpt','improved_trim_excerpt');
+					?>	
 			<?php if (have_posts()) :?>
-					<div class="page-title"><h1><?php printf(__('Category Archives: %s'), single_cat_title('', false)); ?></h1></div>
+					<div class="page-title"><h1><?php printf('分类目录: %s', single_cat_title('', false)); ?></h1></div>
 			<?php if (category_description() ) :?>
 					<span><?php echo category_description(); ?></span>
 			<?php endif; ?>

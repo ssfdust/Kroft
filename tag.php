@@ -1,9 +1,12 @@
-	        <?php get_header();?>	
+					<?php get_header();
+					remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+					add_filter ('get_the_excerpt','improved_trim_excerpt');
+					?>	
 			<?php if (have_posts()) :?>
-					<div class="page-title"><h1><?php printf(__('Tag Archives: %s'), single_tag_title('', false)); ?></h1><span>Share my memory and experience</span></div>
-			<?php if (category_description() ) :?>
+			<div class="page-title"><h1>标签页面:<?php printf(single_cat_title( '', false ));?></h1>
+			<?php if (tag_description() ) :?>
 					<span><?php echo tag_description(); ?></span>
-			<?php endif; ?>
+			<?php endif; ?></div>
 					
 					<!-- side content -->
 					<div id="side-content">
