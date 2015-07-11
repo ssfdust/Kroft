@@ -11,9 +11,23 @@
 						<!-- Blog loop -->
 						<div class="blog-loop">
 							<?php $temp = $wp_query;
+							$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+							$year = get_the_date('Y');
+							$month = get_the_date('n');
 							$wp_query = null;
-							$wp_query = new WP_Query();
-							$wp_query->query('showposts=5'.'&paged='.$paged);
+							$archive_args = array(
+									post_type => 'post',    // get only posts
+									'posts_per_page' => '5',
+									'paged' => $paged,
+									'date_query' => array(
+										array(
+											'year' => $year,
+											'month' => $month,
+										),
+										),
+    );
+							$wp_query = new WP_Query($archive_args);
+							//$wp_query->query('showposts=5'.'&paged='.$paged);
 							?>
 							<?php if ($wp_query->have_posts()) : while ($wp_query->have_posts()):$wp_query->the_post(); ?>
 						<?php get_template_part('content', get_post_format()); ?>	
